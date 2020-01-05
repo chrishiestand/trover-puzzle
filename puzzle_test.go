@@ -31,6 +31,17 @@ func TestSolve1(t *testing.T) {
 	fmt.Println(solution)
 }
 
+func TestUnsolvable(t *testing.T) {
+	// This game state was taken from the game
+	aState := gameState{false, false, true,
+		true, true, true,
+		true, true, true}
+	_, err := solve(aState)
+	if err == nil {
+		t.Error("Expected no solution!")
+	}
+}
+
 func TestMoves0(t *testing.T) {
 	doneState := gameState{true, true, true,
 		true, true, true,
